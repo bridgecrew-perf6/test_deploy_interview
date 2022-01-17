@@ -1,7 +1,7 @@
 # we are going to use a micro web framework called Flask
 # goal is to create a web app for our simple /predict API service
 from flask import Flask, jsonify, request
-
+import os
 app = Flask(__name__)
 
 
@@ -25,7 +25,7 @@ def predict():
     tweets = request.args.get("tweets", "")
     phd = request.args.get("phd", "")
     print("level:", level, lang, tweets, phd)
-    result = {"prediction":"True_mm"} # TODO: fix hardcoding
+    result = {"prediction":"True_mm_onHeroku"} # TODO: fix hardcoding
     return jsonify(result), 200
 
 
@@ -41,7 +41,7 @@ if __name__ == "__main__":
     # 2.B. define a heroku.yaml and push your source code to Heroku's git and 
     # Heroku is going to build the Docker image (and register it)
     # 2.C define main.yaml and pushes the image to registry (e.g. Heroku's registry)
-    
 
-    app.run(debug=True) # TODO: set debug=False before deployement!!
+    port = os.environ.get("PORT", 5000) # 5000 by default and Heroku will set a port environment variable for web trafic
+    app.run(debug=False, host="0.0.0.0", port = port) # set debug=False before deployement!!
 
