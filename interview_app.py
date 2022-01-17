@@ -36,6 +36,8 @@ if __name__ == "__main__":
     # we are going to use Heroku (BaaS, backend as a service)
     # there are quite a few ways to deploy a Flask app to Heroku
     # 1. deploy the app directly on an ubuntu "stack" (e.g. Procfile and requirements.txt)
+        # Procfile is used by Heroku i order to know how to build the application
+
     # 2. deploy the app as a Docker container on a container "stack" (e.g. Dockerfile)
     # 2.A. build a Docker image locally and push the image to a container registry (e.g. Heroku's registry) 
     # 2.B. define a heroku.yaml and push your source code to Heroku's git and 
