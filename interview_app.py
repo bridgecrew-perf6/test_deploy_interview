@@ -45,5 +45,5 @@ if __name__ == "__main__":
     # 2.C define main.yaml and pushes the image to registry (e.g. Heroku's registry)
 
     port = os.environ.get("PORT", 5000) # 5000 by default and Heroku will set a port environment variable for web trafic
-    app.run(debug=False, host="localhost", port = port) # set debug=False before deployement!!
+    app.run(debug=False, host="0.0.0.0", port = port) # set debug=False before deployement!!
 
